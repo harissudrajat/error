@@ -23,22 +23,14 @@ public class PenggunaServiceImpl implements PenggunaService {
 
     @Override
     public Object createUser(Pengguna pengguna, PenggunaDetail penggunaDetail) {
+        Map m = new HashMap();
+        penggunaDetail.setPengguna(pengguna);
+        pengguna.setPenggunaDetail(penggunaDetail);
+        penggunaDao.save(pengguna);
+        penggunaDetailDao.save(penggunaDetail);
+        m.put("SUKSES", "SUKSES");
+        return m;
 
-        Pengguna pUsername = penggunaDao.findByUsername(pengguna.getUsername());
-        if (pUsername != null) {
-            Map map = new HashMap();
-            map.put("DATA", "02");
-            map.put("MESSAGE", "GAGAL SAVE");
-            return map;
-        } else {
-            Map m = new HashMap();
-            penggunaDao.save(pengguna);
-            Optional<Pengguna> pengguna_id = penggunaDao.findById(pengguna.getId());
-            System.out.println(pengguna_id);
-            penggunaDetailDao.save(penggunaDetail);
-            m.put("DATA", "01");
-            return m;
-        }
     }
 
     @Override

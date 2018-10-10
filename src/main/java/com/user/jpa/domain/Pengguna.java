@@ -25,4 +25,8 @@ public class Pengguna {
 
     @Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date createAt;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "pengguna")
+    @JoinColumn(name = "detailId", referencedColumnName = "id", updatable = true)
+    private PenggunaDetail penggunaDetail;
 }

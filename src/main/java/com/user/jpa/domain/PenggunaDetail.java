@@ -16,7 +16,7 @@ public class PenggunaDetail {
     private String alamat;
     private String email;
 
-    @OneToOne
-    @JoinColumn(name = "penggunaId", referencedColumnName = "id", updatable = false)
+    @OneToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "penggunaId", referencedColumnName = "id", updatable = true)
     private Pengguna pengguna;
 }
