@@ -46,7 +46,7 @@ public class JpaApplicationTests {
 //        penggunaDetailDao.save(pd);
 //        System.out.println(penggunaDetailDao.findAll());
 
-        penggunaService.createUser(p,pd);
+        penggunaService.createUser(pd);
         System.out.println(penggunaDetailDao.findAll());
     }
 

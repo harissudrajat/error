@@ -22,14 +22,10 @@ public class PenggunaServiceImpl implements PenggunaService {
     private PenggunaDetailDao penggunaDetailDao;
 
     @Override
-    public Object createUser(Pengguna pengguna, PenggunaDetail penggunaDetail) {
-        Map m = new HashMap();
-        penggunaDetail.setPengguna(pengguna);
-        pengguna.setPenggunaDetail(penggunaDetail);
-        penggunaDao.save(pengguna);
-        penggunaDetailDao.save(penggunaDetail);
-        m.put("SUKSES", "SUKSES");
-        return m;
+    public Object createUser(PenggunaDetail penggunaDetail) {
+        Pengguna pengguna = new Pengguna();
+        penggunaDetail.getPengguna().setId(pengguna.getId());
+        return penggunaDetailDao.save(penggunaDetail);
 
     }
 

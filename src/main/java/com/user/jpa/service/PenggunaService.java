@@ -5,7 +5,7 @@ import com.user.jpa.domain.PenggunaDetail;
 
 public interface PenggunaService {
 
-    Object createUser(Pengguna pengguna, PenggunaDetail penggunaDetail);
+    Object createUser(PenggunaDetail penggunaDetail);
 
     Object findAll();
 }

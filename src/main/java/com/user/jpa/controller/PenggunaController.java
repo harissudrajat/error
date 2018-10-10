@@ -14,13 +14,13 @@ public class PenggunaController {
     PenggunaServiceImpl penggunaService;
 
     @GetMapping
-    public Object getAll(){
+    public Object getAll() {
         return penggunaService.findAll();
     }
 
 
     @PostMapping
-    public Object save(@RequestBody Pengguna p, PenggunaDetail pd){
-        return penggunaService.createUser(p,pd);
+    public Object save(@RequestBody PenggunaDetail pd) {
+        return penggunaService.createUser(pd);
     }
 }

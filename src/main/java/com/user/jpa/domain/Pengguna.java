@@ -23,10 +23,7 @@ public class Pengguna {
     @Column(columnDefinition = "int(2) default '1'")
     private Integer active;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date createAt;
-
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "pengguna")
-    @JoinColumn(name = "detailId", referencedColumnName = "id", updatable = true)
-    private PenggunaDetail penggunaDetail;
 }
